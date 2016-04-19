@@ -31,4 +31,13 @@ public class Data {
         
         return name;
     }
+    
+    public void addName(String name, String city, String email){
+        k = new Klasa(name, city, email);
+        session = helper.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(k);
+        session.getTransaction().commit();
+        session.close();
+    }
 }

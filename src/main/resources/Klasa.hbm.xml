@@ -4,9 +4,12 @@
   <class name="model.Klasa" catalog="pawc_db" table="klasa">
       
       <id name="id" type="java.lang.Integer" column="id">
+       <generator class="increment"/>
       </id>
       
       <property name="name" type="string" column="name" />
+      <property name="city" type="string" column="city" />
+      <property name="email" type="string" column="email" />
       
   </class>
 </hibernate-mapping>

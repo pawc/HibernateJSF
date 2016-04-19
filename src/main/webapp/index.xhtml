@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
       >
@@ -11,8 +10,10 @@
     </h:head>
     <h:body>
         <h:form>
-	        <h:inputText id="name" value="#{klasa.name}" a:placeholder="What's your name?" />
-    	    <h:commandButton value="Submit" action="myresponse" />
+            <br>Name: <h:inputText id="name" binding="#{input1}" value="#{klasa.name}" /></br>
+            <br>City: <h:inputText id="city" binding="#{input2}" value="#{klasa.city}" /></br>
+            <br>E-mail: <h:inputText id="email" binding="#{input3}" value="#{klasa.email}" /></br>
+            <h:commandButton value="Submit" action="#{data.addName(input1.value, input2.value, input3.value)}" />
         </h:form>
     </h:body>
 </html>
