@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.hibernate.Session;
-
-/**
- *
- * @author pawc
- */
+import org.hibernate.Query;
+import java.util.List;
+import java.util.ArrayList;
+import model.Klasa;
 
 @ManagedBean
 @SessionScoped
@@ -22,6 +16,7 @@ public class Data {
     private HibernateUtil helper;
     private Session session;
     private String name;
+	private List<Klasa> results;
         
     public String getName(){
         session = helper.getSessionFactory().openSession();
@@ -31,6 +26,14 @@ public class Data {
         
         return name;
     }
+
+	public List getResults(){
+		session = helper.getSessionFactory().openSession();
+		String hql = "select k from Klasa k";
+		Query query = session.createQuery(hql);
+		results = query.list();
+		return results;
+	}
     
     public void addName(String name, String city, String email){
         k = new Klasa(name, city, email);

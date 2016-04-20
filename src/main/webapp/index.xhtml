@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:c="http://java.sun.com/jstl/core"
       >
     
     <h:head>
@@ -15,5 +16,12 @@
             <br>E-mail: <h:inputText id="email" binding="#{input3}" value="#{klasa.email}" /></br>
             <h:commandButton value="Submit" action="#{data.addName(input1.value, input2.value, input3.value)}" />
         </h:form>
+
+	<p></p>
+	
+	<c:forEach items="#{data.results}" var="klasa">
+		<br>#{klasa.name}, #{klasa.city}, #{klasa.email}</br>
+	</c:forEach>	
+
     </h:body>
 </html>
